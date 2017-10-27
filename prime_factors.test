@@ -1,0 +1,44 @@
+package require tcltest
+namespace impor ::tcltest::*
+
+source prime_factors.tcl
+
+set l [list]
+
+test "prime_factors of 1 returns {}" {
+  Test: result == {}
+} -body {
+  set result [prime_factors 1 $l]
+} -result [list]
+
+test "prime_factors of 2 returns {2}" {
+  Test: result == {2}
+} -body {
+  set result [prime_factors 2 $l]
+} -result [list 2]
+
+test "prime_factors of 4 returns {2 2}" {
+  Test: result == {2 2}
+} -body {
+  set result [prime_factors 4 $l]
+} -result [list 2 2]
+
+test "prime_factors of 8 returns {2 2 2}" {
+  Test: result == {2 2 2}
+} -body {
+  set result [prime_factors 8 $l]
+} -result [list 2 2 2]
+
+test "prime_factors of 3 returns {3}" {
+  Test: result == {3}
+} -body {
+  set result [prime_factors 3 $l]
+} -result [list 3]
+
+test "prime_factors of 9 returns {3 3}" {
+  Test: result == {3 3}
+} -body {
+  set result [prime_factors 9 $l]
+} -result [list 3 3]
+
+cleanupTests
